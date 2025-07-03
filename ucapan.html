@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ucapan Lucu untuk Dosen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Fredoka', sans-serif;
+      background: #fef3c7;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: #b45309;
+      font-size: 7vw;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .gif {
+      display: block;
+      margin: 0 auto 20px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    input {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .ucapan {
+      font-size: 18px;
+      color: #374151;
+      background-color: #f3f4f6;
+      padding: 20px;
+      border-radius: 15px;
+      min-height: 80px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #f59e0b;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #fbbf24;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    @media (min-width: 600px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      button {
+        width: auto;
+        padding: 12px 30px;
+      }
+
+      input {
+        max-width: 300px;
+        margin: 0 auto 20px;
+        display: block;
+      }
+
+      .ucapan {
+        font-size: 20px;
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🎓UNTUK IBUK RINI TERSAYANG DAN TERBEST🎓 </h1>
+    <img class="gif" src="lucu.gif" alt="Funny Dosen">
+
+    <input type="text" id="namaDosen" placeholder="Masukkan nama">
+    
+    <div class="ucapan" id="ucapan">Klik tombol di bawah !</div>
+    
+    <button onclick="tampilkanUcapan()">Tampilkan Ucapan</button>
+
+    <audio id="audio" src="https://www.myinstants.com/media/sounds/notification.mp3" preload="auto"></audio>
+
+    <div class="footer">© 2025 - Dari Afandi Maulana yang penuh harapan dan Perjuangan 😄</div>
+  </div>
+
+  <script>
+    const ucapans = [
+      
+      "NAMA_DOSEN, Buk saya rasanya sangat capek buk, ternyata kerja sambil kuliah itu tidak mudah yah buk, ternyata berat buk kita harus mengerjakan tugas kuliah, memikirkan tugas pekerjaan, belum lagi kalau semester akhir ini, saya lemah juga buk.tapi saya dipaksa untuk kuat buk dengan keadaan ini, cita-cita saya ingin melihat senyuman bangga dan bahagia dari kedua orang tua saya buk, karena saya sudah capek direndahkan dan dianggap sepele sama orang lain buk,apalagi dari keluarga sendiri, jadi saya ingin membuktikan juga kepada mereka bahwa saya mampu buk,dan bisa berhasil, saya sudah cukup untuk merasakan hidup susah buk, keluarga kami pernah gamakan buk, pernah diusair bebrapa kali dari kontrakan, pernah makan ikan hingga berulat buk, orang tua disantet hingga hampir mati, bapak ditipu dikerjaan, semua sudah dialami buk, tapi itu semua yang membuat saya tumbuh jadi lebih kuat, dan berambisi kalau saya harus bisa sukses. terima kasih yah buk sudah selalu mengerti tentang keadaan dan perasaan kami buk sebagai mahasiswa 😌",
+     
+    ];
+
+    function tampilkanUcapan() {
+      const nama = document.getElementById("namaDosen").value.trim();
+      const ucapanEl = document.getElementById("ucapan");
+      const audio = document.getElementById("audio");
+
+      if (!nama) {
+        ucapanEl.innerHTML = "Isi nama dulu ya... 🙏";
+        return;
+      }
+
+      const index = Math.floor(Math.random() * ucapans.length);
+      const ucapan = ucapans[index].replace(/NAMA_DOSEN/g, nama);
+      ucapanEl.innerHTML = `"${ucapan}"`;
+      audio.play();
+    }
+  </script>
+
+</body>
+</html>
